@@ -1,5 +1,6 @@
 import { GetServerSideProps } from "next";
 import {parse } from "cookie";
+
 type User = {
   id: number;
   name: string;
@@ -13,21 +14,21 @@ type HomeProps = {
 
 export default function Home({ users, currentUser }: HomeProps) {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <h1 className="text-3xl font-bold mb-4">
+    <div>
+      <h1>
         {currentUser ? `Welcome, ${currentUser.name}` : "Users" }
       </h1>
       {currentUser ? (
-        <ul className="list-disc pl-6">
+        <ul>
         {users.map((u) => (
-          <li key={u.id} className="text-lg">
+          <li key={u.id}>
             {u.name}
           </li>
         ))}
       </ul>
 
       ): ( 
-        <p>Please <a href="/login" className="text-blue-500 underline">log in</a> to see the users.</p>
+        <p>Please <a href="/login">log in</a> to see the users.</p>
       )
       
     }

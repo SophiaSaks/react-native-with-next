@@ -30,9 +30,9 @@ export default function LoginPage() {
     };
 
     return (
-        <div className="p-8">
-            <h1 className="text-2x1 font-bold mb-4">Login</h1>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <div >
+            <h1 >Login</h1>
+            <form onSubmit={handleSubmit} >
                 <input
                 type="email"
                 placeholder="Email"
@@ -45,9 +45,9 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required />
-                 <button type="submit" className="bg-blue-500 text-white p-2 rounded">Login</button>
+                 <button type="submit">Login</button>
             </form>
-            {error && <p className="text-red-500 mt-2">{error}</p>}
+            {error && <p>{error}</p>}
         </div>
     );
 
