@@ -54,7 +54,7 @@ app.post("/api/auth/login", async (req: Request, res: Response) => {
     res.json({token}); 
 })
 
-app.get("api/auth/me", (req: Request, res: Response) => {
+app.get("/api/auth/me", (req: Request, res: Response) => {
 
     const authHeader = req.headers.authorization;  
     if(!authHeader?.startsWith("Bearer ")){

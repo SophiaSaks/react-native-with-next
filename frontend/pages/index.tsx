@@ -1,5 +1,5 @@
 import { GetServerSideProps } from "next";
-import cookie from "cookie"; 
+import {parse } from "cookie";
 type User = {
   id: number;
   name: string;
@@ -39,7 +39,7 @@ export default function Home({ users, currentUser }: HomeProps) {
 export const getServerSideProps: GetServerSideProps<HomeProps> = async (context) => {
   try {
     const cookies = context.req.headers.cookie
-    ? cookie.parse(context.req.headers.cookie)
+    ? parse(context.req.headers.cookie)
     : {};
     const token = cookies.token; 
 
@@ -52,10 +52,19 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async (context)
       if(resUser.ok){
         currentUser = await resUser.json();
       }
-      
     }
 
-    return { props: {users:[], currentUser}};
+    let users: User[] = [];
+    if(currentUser){
+      const resUsers = await fetch("http://127.0.0.1:5000/api/users");
+      if(resUsers.ok){
+        users = await resUsers.json(); 
+      }
+    }
+
+    console.log("Cookies:", context.req.headers.cookie)
+
+    return { props: {users, currentUser}};
 
   }catch(err){
     console.error("Failed to fetch users or auth: ", err);
