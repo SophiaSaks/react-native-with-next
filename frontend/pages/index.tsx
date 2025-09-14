@@ -24,7 +24,7 @@ export default function Home({ users, currentUser }: HomeProps) {
     <div
       className="flex flex-col gap-6 justify-center items-center min-h-screen bg-backgroundGreen">
       <h1
-        className="font-sans">
+        className="font-serif">
         {currentUser ? `Welcome, ${currentUser.name}` : "Users"}
       </h1>
 
@@ -51,7 +51,7 @@ export default function Home({ users, currentUser }: HomeProps) {
         <p
           className="font-sans">
           Please
-          <a className="" href="/login">log in</a>
+          <a className="font-bold text-secondary" href="/login"> log in </a>
           to see the users.
         </p>
       )}

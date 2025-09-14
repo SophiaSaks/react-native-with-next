@@ -11,11 +11,8 @@ module.exports = {
         okGreen: "#5caa3dff",
         lighterGreen: "#C8DAD7",
         primary: "#19493aff", 
-        secondary: "#FBBF24", 
+        secondary: "#1E4496", 
         accent: "#EC4899",
-      },
-      fontFamily: {
-        sans: ['"Josefin Sans"', "ui-sans-serif", "system-ui"],
       },
     },
   },
