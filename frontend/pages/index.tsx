@@ -24,17 +24,20 @@ export default function Home({ users, currentUser }: HomeProps) {
     <div
       className="flex flex-col gap-6 justify-center items-center min-h-screen bg-backgroundGreen">
       <h1
-        className="font-serif">
+        className="font-serif text-5xl">
         {currentUser ? `Welcome, ${currentUser.name}` : "Users"}
       </h1>
 
       {currentUser ? (
         <>
-        <ul>
+        <h3 className="text-primary font-bold">Users:</h3>
+        <ul >
           {users.map((u) => (
             <li
-              key={u.id}>
+              key={u.id}
+              className="bg-lighterGreen p-2 m-2">
               {u.name}
+              
             </li>
           ))}
         </ul>
