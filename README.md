@@ -1,8 +1,11 @@
-# This is a project where I play around with node.js, next.js, React and tailwind
+# This is a project where I play around with node.js, next.js, React and Tailwind
 
-# To run projecct
-## npm i in both backend, frontend and root project, and then you can do npm run dev in root folder to run both BE and FE simultaneously. 
 
-## Frontend runs on localhost:3000, backend on localhost:5000
+<details>
+<summary>To run project</summary>
 
-## To log in I have 3 test-users. For example sophia@example.com with password "password123"
+|     1| npm i in both backend, frontend and root project, and then you can do npm run dev in root folder to run both BE and FE simultaneously.|
+|     2| Frontend runs on localhost:3000, click on login and login to see all of my test users   |
+|     3| To log in I have 3 test-users. Use for example sophia@example.com with password "password123" to log in |
+
+</details>
