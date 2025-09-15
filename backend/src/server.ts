@@ -8,7 +8,7 @@ import { config as importDotEnvConfig } from "dotenv";
 importDotEnvConfig();
 
 const app = express();
-const PORT = process.env.PORT || 5000; 
+const PORT = process.env.PORT; 
 const SECRET = process.env.JWT_SECRET as string;
 
 
