@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "type": "module",
   "main": "index.js",
-"scripts": {
-  "dev": "DOTENV_CONFIG_PATH=.env.local node --loader ts-node/esm -r dotenv/config src/server.ts",
-  "start": "DOTENV_CONFIG_PATH=.env.local node -r dotenv/config dist/server.js",
-  "test": "echo \"Error: no test specified\" && exit 1"
-},
+   "scripts": {
+     "dev": "cross-env DOTENV_CONFIG_PATH=.env.local node --loader ts-node/esm -r dotenv/config src/server.ts",
+     "start": "cross-env DOTENV_CONFIG_PATH=.env.local node -r dotenv/config dist/server.js",
+     "test": "echo \"Error: no test specified\" && exit 1"
+   },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -26,6 +26,7 @@
     "@types/express": "^5.0.3",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^24.3.1",
+    "cross-env": "^10.0.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
   }
