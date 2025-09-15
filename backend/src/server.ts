@@ -4,10 +4,11 @@ import bcrypt from "bcrypt";
 import type {Request, Response} from "express";
 import jwt from "jsonwebtoken";
 import type { JwtPayload } from "jsonwebtoken";
+import "dotenv/config"; 
 
 const app = express();
-const PORT = 5000; 
-const SECRET = "supersecret";
+const PORT = process.env.PORT || 5000; 
+const SECRET = process.env.JWT_SECRET as string;
 
 app.use(cors()); 
 app.use(express.json());
