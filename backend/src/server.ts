@@ -1,14 +1,16 @@
 import express from "express"; 
 import cors from "cors"; 
 import bcrypt from "bcrypt";
-import type {Request, Response} from "express";
+import type { Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import type { JwtPayload } from "jsonwebtoken";
-import "dotenv/config"; 
+import { config as importDotEnvConfig } from "dotenv";
+importDotEnvConfig();
 
 const app = express();
 const PORT = process.env.PORT || 5000; 
 const SECRET = process.env.JWT_SECRET as string;
+
 
 app.use(cors()); 
 app.use(express.json());
