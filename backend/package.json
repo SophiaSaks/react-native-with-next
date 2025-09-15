@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "type": "module",
   "main": "index.js",
-  "scripts": {
-    "dev": "node --loader ts-node/esm src/server.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+"scripts": {
+  "dev": "DOTENV_CONFIG_PATH=.env.local node --loader ts-node/esm -r dotenv/config src/server.ts",
+  "start": "DOTENV_CONFIG_PATH=.env.local node -r dotenv/config dist/server.js",
+  "test": "echo \"Error: no test specified\" && exit 1"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
