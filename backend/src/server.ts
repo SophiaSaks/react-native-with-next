@@ -7,9 +7,19 @@ import type { JwtPayload } from "jsonwebtoken";
 import { config as importDotEnvConfig } from "dotenv";
 importDotEnvConfig();
 
+declare global {
+    namespace NodeJS {
+        interface ProcessEnv {
+            PORT: string;
+            JWT_SECRET: string;
+        }
+    }
+}
+
+
 const app = express();
 const PORT = process.env.PORT; 
-const SECRET = process.env.JWT_SECRET as string;
+const SECRET = process.env.JWT_SECRET;
 
 
 app.use(cors()); 
