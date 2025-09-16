@@ -1,14 +1,14 @@
 import { GetServerSideProps } from "next";
 import { parse } from "cookie";
-import {useRouter} from "next/router"; 
+import { useRouter } from "next/router";
 
-type User = {
+interface User {
   id: number;
   name: string;
   email?: string;
 };
 
-type HomeProps = {
+interface HomeProps {
   users: User[];
   currentUser?: User | null;
 };
@@ -30,23 +30,23 @@ export default function Home({ users, currentUser }: HomeProps) {
 
       {currentUser ? (
         <>
-        <h3 className="text-primary font-bold">Users:</h3>
-        <ul >
-          {users.map((u) => (
-            <li
-              key={u.id}
-              className="bg-lighterGreen p-2 m-2">
-              {u.name}
-              
-            </li>
-          ))}
-        </ul>
-        <button
-        onClick={handleLogout}
-        className="bg-primary w-24 h-12 text-white rounded-lg py-2 hover:bg-okGreen disabled:opacity-50"
-        >
-          Logout
-        </button>
+          <h3 className="text-primary font-bold">Users:</h3>
+          <ul >
+            {users.map((u) => (
+              <li
+                key={u.id}
+                className="bg-lighterGreen p-2 m-2">
+                {u.name}
+
+              </li>
+            ))}
+          </ul>
+          <button
+            onClick={handleLogout}
+            className="bg-primary w-24 h-12 text-white rounded-lg py-2 hover:bg-okGreen disabled:opacity-50"
+          >
+            Logout
+          </button>
 
         </>
 
@@ -87,8 +87,6 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async (context)
         users = await resUsers.json();
       }
     }
-
-    console.log("Cookies:", context.req.headers.cookie)
 
     return { props: { users, currentUser } };
 

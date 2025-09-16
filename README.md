@@ -69,7 +69,7 @@ npm run dev
 
 ## Test Users
 
-Here are the available test users for login:
+Here are one of the available test users for login:
 
 | Email              | Password    |
 |--------------------|-------------|

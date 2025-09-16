@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { serialize } from "cookie"; 
+import { serialize } from "cookie";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== "POST") {
@@ -7,7 +7,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     const { email, password } = req.body;
-    console.log("incoming login request:", {email, password});
 
     try {
 
@@ -19,11 +18,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         if (!response.ok) {
             const data = await response.json();
-            return res.status(401).json({ error: data.error || "Invalid credentials"});
+            return res.status(401).json({ error: data.error || "Invalid credentials" });
         }
 
         const data = await response.json();
-        const token = data.token; 
+        const token = data.token;
 
         res.setHeader("Set-Cookie", serialize("token", token, {
             httpOnly: true,
@@ -33,10 +32,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             path: "/",
         }));
 
-        return res.status(200).json({success: true});
+        return res.status(200).json({ success: true });
 
-    } catch(err){
+    } catch (err) {
         console.log(err);
-        return res.status(500).json({error: "Server error"});
+        return res.status(500).json({ error: "Server error" });
     }
 }
